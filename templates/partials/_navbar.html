@@ -5,11 +5,11 @@
         <div class="row d-flex">
           <div class="col-md pr-4 d-flex topper align-items-center">
             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone-plane"></span></div>
-            <span class="text">GROC4ALL</span>
+            <span class="text">$__TROUBLESHOOTERS__$</span>
           </div>
           <div class="col-md pr-4 d-flex topper align-items-center">
             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone-plane"></span></div>
-            <span class="text">jayitsaha@gmail.com</span>
+            <span class="text">CONTACTUS@gmail.com</span>
           </div>
           <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
             <span class="text">Current day delivery &amp; Free Returns</span>
@@ -35,6 +35,15 @@
 
             <li class="nav-item active"><a class="nav-link" href="/shop">SHOP</a></li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">WE CARE FOR YOU</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <a class="dropdown-item" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a>
+            <a class="dropdown-item" href="{% url "pages:about" %}">ABOUT US</a>
+
+          </div>
+        </li>
+
 
             {% comment %} <li class="nav-item"><a href="#" class="nav-link">Blog</a></li> {% endcomment %}
         {% comment %} <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li> {% endcomment %}
@@ -43,9 +52,9 @@
           <!-- <div class="dropdown-menu" aria-labelledby="dropdown04"> -->
             {% comment %} <a class="nav-item" href="{% url 'shop' %}">Shop</a> {% endcomment %}
 
-
+{% comment %}
             <li class="nav-item "><a href="{% url "pages:about" %}" class="nav-link">ABOUT</a></li>
-            {% comment %} <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li>
+            <li class="nav-item "><a class="nav-link" href="{% url "diseasepredictor:home"%}">CORONA PREDICTOR</a></li> {% endcomment %}
 
 
                   {% if user.is_authenticated %}
@@ -55,12 +64,12 @@
 
                   <li class="nav-item "><a class="nav-link" href="{% url "wishlists:my_wishlists"%}">Wishlist</a></li>
 
-                  <li class="nav-item "><a class="nav-link" href="{% url "users:profile" user.id %}">PROFILE</a></li> {% endcomment %}
+                  <li class="nav-item "><a class="nav-link" href="{% url "users:profile" user.id %}">PROFILE</a></li>
 
                   {% comment %} <li class="nav-item active"><a class="nav-link" href="{% url "cart:cart_detail" %}">Cart</a></li> {% endcomment %}
 
 
-                   {% comment %} <li class="nav-item ">
+                   <li class="nav-item ">
                           <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
                           <i class="fas fa-sign-out-alt"></i> Logout
                           </a>
@@ -70,6 +79,11 @@
                               <input type="hidden">
                           </form>
                   </li>
+
+                  <li class="nav-item "><a href="{% url "cart:cart_detail" %}" class="nav-link">
+          <i class="fa fa-cart-plus" style="font-size:14px" aria-hidden="true"></i>
+          ({{request.session.cart | length}}) Item
+        </a></li>
 
 
                   {% else %}
@@ -82,7 +96,7 @@
 
 
 
-                  {% endif %} {% endcomment %}
+                  {% endif %}
 
 
 
@@ -91,10 +105,7 @@
         {% comment %} </li> {% endcomment %}
 
         {% comment %} <!-- <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li> --> {% endcomment %}
-        {% comment %} <li class="nav-item "><a href="{% url "cart:cart_detail" %}" class="nav-link">
-          <i class="fa fa-cart-plus" style="font-size:14px" aria-hidden="true"></i>
-          ({{request.session.cart | length}}) Item
-        </a></li> {% endcomment %}
+
 
       </ul>
     </div>
